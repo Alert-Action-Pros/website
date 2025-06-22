@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlertAction Pros - Chargeback Alert Management Service</title>
+    <meta name="description" content="Professional chargeback alert management service that protects your revenue and saves you time">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #003366;
+            --secondary: #0077B6;
+            --accent: #00B4D8;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #28a745;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            padding-top: 70px; /* Space for fixed navbar */
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 0;
+        }
+        
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .logo i {
+            margin-right: 0.5rem;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a.active {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .btn-nav {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 180, 216, 0.2);
+            border: 2px solid var(--accent);
+        }
+        
+        .btn-nav:hover {
+            background-color: white;
+            color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 5rem 1rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        section {
+            padding: 3rem 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            font-weight: 600;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .features, .how-it-works, .why-us, .testimonials, .pricing {
+            margin-bottom: 1rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        ul.feature-list, ol.process-list {
+            list-style-type: none;
+        }
+        
+        ul.feature-list li, ol.process-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        ul.feature-list li::before, ol.process-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+        
+        ol.process-list li::before {
+            content: counter(step);
+            counter-increment: step;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
+        ol.process-list {
+            counter-reset: step;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .benefit-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .benefit-item p {
+            font-size: 0.95rem;
+        }
+        
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '\201C';
+            font-family: Georgia, serif;
+            font-size: 4rem;
+            color: rgba(0, 180, 216, 0.1);
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            line-height: 1;
+        }
+        
+        blockquote {
+            font-style: italic;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .testimonial-role {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        
+        th, td {
+            border: 1px solid #e9ecef;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 500;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e9f7fe;
+        }
+        
+        .highlight {
+            background-color: #e3f2fd !important;
+            position: relative;
+        }
+        
+        .highlight::after {
+            content: 'Most Popular';
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.7rem;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+        
+        .cta .container {
+            position: relative;
+        }
+        
+        .cta h2 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #0096c7;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+        }
+        
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-3 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mt-3 {
+            margin-top: 1.5rem;
+        }
+        
+        .pricing-notes {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .pricing-notes a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .pricing-notes a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .navbar-container {
+                padding: 0.75rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                opacity: 0;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                margin: 0.75rem 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+            
+            .btn-nav {
+                margin-top: 0.5rem;
+            }
+            
+            header {
+                padding: 4rem 1rem 3rem;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 2rem 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .card {
+                padding: 1.25rem;
+            }
+            
+            table {
+                font-size: 0.8rem;
+            }
+            
+            th, td {
+                padding: 0.75rem;
+            }
+            
+            .cta h2 {
+                font-size: 1.6rem;
+            }
+            
+            .cta p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .benefits-grid, .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .btn, .btn-large {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar" id="navbar">
+    <div class="navbar-container">
+        <a href="#" class="logo">
+            <i class="fas fa-shield-alt"></i>
+            AlertAction<span>Pros</span>
+        </a>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#features" class="active">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#why-us">Why Us</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#cta" class="btn-nav">Get Started</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <h1>We handle your chargeback alerts — so you don't have to.</h1>
+        <p>Expert-led alert management that protects your revenue, saves time, and stops chargebacks before they happen.</p>
+        <a href="#cta" class="btn btn-large">Get Started Today</a>
+    </div>
+</header>
+
+<section id="features" class="features">
+    <div class="container">
+        <div class="section-title">
+            <h2>Chargeback Alerts Are a Headache</h2>
+        </div>
+        
+        <div class="card">
+            <ul class="feature-list">
+                <li><strong>Missed alerts = lost revenue</strong> - Every unaddressed alert can turn into a costly chargeback</li>
+                <li><strong>Manual processes = wasted time</strong> - Your team has better things to do than monitor alerts 24/7</li>
+                <li><strong>In-house teams = inconsistent results</strong> - Without specialized expertise, you're leaving money on the table</li>
+            </ul>
+            <p class="mt-3"><strong>You have better things to do. That's where we come in.</strong></p>
+        </div>
+    </div>
+</section>
+
+<section id="how-it-works" class="how-it-works">
+    <div class="container">
+        <div class="section-title">
+            <h2>We Take Over. You Stay Protected.</h2>
+        </div>
+        
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>24/7 Alert Monitoring</h3>
+                <p>Never miss an alert with our round-the-clock monitoring system</p>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Real-time Response</h3>
+                <p>Immediate action on Verifi & Ethoca alerts to prevent chargebacks</p>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>Expert Handling</h3>
+                <p>Every case managed by our trained chargeback specialists</p>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Transparent Reporting</h3>
+                <p>Clear insights into your chargeback prevention performance</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="how-it-works">
+    <div class="container">
+        <div class="section-title">
+            <h2>How It Works</h2>
+        </div>
+        
+        <div class="card">
+            <ol class="process-list">
+                <li><strong>Connect Your Alert Feed:</strong> Simple integration with your current provider (Verifi, Ethoca, or both) in minutes.</li>
+                <li><strong>We Monitor & Take Action:</strong> Our experts respond immediately when an alert hits, using proven strategies.</li>
+                <li><strong>You Stay Protected:</strong> We handle the entire process while you focus on growing your business.</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section id="why-us" class="why-us">
+    <div class="container">
+        <div class="section-title">
+            <h2>Why Choose AlertAction Pros</h2>
+        </div>
+        
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h3>Expert-Driven</h3>
+                <p>Every alert handled by trained professionals with years of chargeback experience</p>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3>Transparent</h3>
+                <p>Real-time dashboards & monthly reports show exactly how we're protecting you</p>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-piggy-bank"></i>
+                </div>
+                <h3>Revenue-Saving</h3>
+                <p>Lower chargeback fees, higher win rates, and protected merchant accounts</p>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Time-Saving</h3>
+                <p>No training or management needed - we handle everything for you</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials" class="testimonials">
+    <div class="container">
+        <div class="section-title">
+            <h2>What Our Clients Say</h2>
+        </div>
+        
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <blockquote>"Before AlertAction Pros, we were losing thousands a month to missed alerts. Now, we don't even think about chargebacks — it's just handled."</blockquote>
+                <div class="testimonial-author">Sarah Johnson</div>
+                <div class="testimonial-role">E-commerce Merchant, USA</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <blockquote>"The ROI was immediate. We reduced our chargebacks by 68% in the first month and saved countless hours of staff time."</blockquote>
+                <div class="testimonial-author">Michael Chen</div>
+                <div class="testimonial-role">Subscription Business Owner</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <blockquote>"Their expertise in handling complex cases has been invaluable. We tried managing alerts ourselves but got much better results with AlertAction Pros."</blockquote>
+                <div class="testimonial-author">David Rodriguez</div>
+                <div class="testimonial-role">Digital Services Provider</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="pricing" class="pricing">
+    <div class="container">
+        <div class="section-title">
+            <h2>Flexible Plans for Every Business</h2>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    <th>Ideal For</th>
+                    <th>Monthly Alerts</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Starter</td>
+                    <td>Low-volume merchants</td>
+                    <td>Up to 20</td>
+                    <td>$49/month + $18 per alert</td>
+                </tr>
+                <tr class="highlight">
+                    <td>Growth</td>
+                    <td>Mid-size businesses</td>
+                    <td>20-100</td>
+                    <td>$149/month + $15 per alert</td>
+                </tr>
+                <tr>
+                    <td>Pro</td>
+                    <td>High-volume accounts</td>
+                    <td>100+</td>
+                    <td>$299/month + $12 per alert</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p class="pricing-notes"><strong>Need a custom solution?</strong> <a href="#cta">Contact our sales team</a> for enterprise pricing and volume discounts.</p>
+    </div>
+</section>
+
+<section id="cta" class="cta">
+    <div class="container">
+        <h2>Ready to stop worrying about chargebacks?</h2>
+        <p>Join hundreds of merchants who trust AlertAction Pros to protect their revenue — without lifting a finger.</p>
+        <a href="#" class="btn btn-large">Book Your Free Demo</a>
+        <p class="mt-3">Or call us at <strong>(800) 555-0199</strong> to speak with an expert</p>
+    </div>
+</section>
+
+<script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const navbar = document.getElementById('navbar');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+            '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70, // Adjust for navbar height
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Sticky navbar on scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // Highlight active section in navbar
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
+        
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= sectionTop - 100) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href') === `#${current}`) {
+                item.classList.add('active');
+            }
+        });
+    });
+    
+    // Initialize navbar state
+    window.dispatchEvent(new Event('scroll'));
+</script>
+
+</body>
+</html>
