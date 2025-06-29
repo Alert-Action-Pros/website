@@ -1104,7 +1104,7 @@ footer {
     cursor: pointer;
 }
 .contact-form button[type="submit"]:hover {
-    background: linear-gradient(90deg, var(--primary), var(--accent));
+    background: linear-gradient(90deg, var(--primary-light), var(--accent));
     transform: translateY(-2px) scale(1.03);
 }
 
@@ -1454,4 +1454,142 @@ blockquote {
     .cta-highlight {
         font-size: 1.2rem;
     }
+}
+
+
+
+/* ...existing code... */
+
+/* Mobile Responsive Navbar */
+@media (max-width: 1000px) {
+  .navbar-container {
+    flex-direction: row;
+    align-items: center;
+    padding: 0.7rem 1rem;
+    position: relative;
+  }
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0,191,174,0.08);
+    display: none;
+    padding: 1rem 0;
+    z-index: 1001;
+    transition: max-height 0.3s;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links li {
+    margin: 0.7rem 1.5rem;
+    width: 100%;
+  }
+  .nav-links a {
+    width: 100%;
+    padding: 0.7rem 0;
+    font-size: 1.1rem;
+    border-radius: 6px;
+  }
+  .mobile-menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--primary);
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 1100;
+  }
+}
+
+/* Optional: Make sure nav is above everything */
+.navbar {
+  z-index: 2000;
+}
+
+
+@media (max-width: 1000px) {
+  .nav-links {
+    /* ...existing code... */
+    background: #fff;
+  }
+  .nav-links li {
+    /* ...existing code... */
+  }
+  .nav-links a {
+    width: 100%;
+    padding: 0.7rem 0;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    color: #111 !important; /* Make menu options black for visibility */
+    background: transparent;
+  }
+  .nav-links a.active,
+  .nav-links a:hover {
+    color: var(--accent) !important;
+    background: #f3f3f3;
+  }
+}
+
+@media (max-width: 1000px) {
+  .nav-links {
+    /* ...existing code... */
+    background: #fff;
+  }
+  .nav-links li {
+    /* ...existing code... */
+  }
+  .nav-links a {
+    width: 50%;
+    padding: 0.7rem 0;
+    font-size: 1.1rem;
+    border-radius: 60px;
+    color: #111 !important; /* Make menu options black for visibility */
+    background: transparent;
+  }
+  .nav-links a.active,
+  .nav-links a:hover {
+    color: #181c24 !important;
+    /* background: var(--p); */
+  }
+}
+
+@media (max-width: 600px) {
+  .features .card {
+    padding: 1rem 0.5rem;
+  }
+  .feature-list li {
+    font-size: 1rem;
+    margin-bottom: 1.1rem;
+    align-items: center;
+  }
+  .feature-list li::before {
+    width: 2.2em;
+    height: 2.2em;
+    min-width: 2.2em;
+    min-height: 2.2em;
+    font-size: 1.2em;
+    margin-right: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Ensure icon stays centered and does not shrink */
+  .feature-list li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .features .section-title h2 {
+    font-size: 1.1rem;
+  }
+  .features .section-title p {
+    font-size: 1rem;
+  }
 }

@@ -155,3 +155,20 @@ navLinkItems.forEach(link => {
         getStartedBtn.style.borderColor = 'var(--accent)';
     });
 });
+
+// Mobile navbar toggle
+document.addEventListener('DOMContentLoaded', function () {
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener('click', function () {
+      navLinks.classList.toggle('open');
+    });
+    // Optional: Close menu when a link is clicked (for better UX)
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+});
