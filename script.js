@@ -41,6 +41,17 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('scrolled');
     }
+
+    // Navbar color transition based on scroll position
+    const header = document.querySelector('header');
+    if (header) {
+        const headerBottom = header.offsetTop + header.offsetHeight;
+        if (window.scrollY + navbar.offsetHeight >= headerBottom) {
+            navbar.classList.add('gradient-bg');
+        } else {
+            navbar.classList.remove('gradient-bg');
+        }
+    }
 });
 
 // Highlight active section in navbar
@@ -127,3 +138,20 @@ window.addEventListener('scroll', animateOnScroll);
 
 // Initialize navbar state
 window.dispatchEvent(new Event('scroll'));
+
+// Make "Get Started" button white with black text when any nav link is hovered
+const navLinkItems = document.querySelectorAll('.nav-links a:not(.btn-nav)');
+const getStartedBtn = document.querySelector('.btn-nav');
+
+navLinkItems.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        getStartedBtn.style.background = '#fff';
+        getStartedBtn.style.color = '#111';
+        getStartedBtn.style.borderColor = 'var(--accent)';
+    });
+    link.addEventListener('mouseleave', () => {
+        getStartedBtn.style.background = 'var(--accent)';
+        getStartedBtn.style.color = '#fff';
+        getStartedBtn.style.borderColor = 'var(--accent)';
+    });
+});
