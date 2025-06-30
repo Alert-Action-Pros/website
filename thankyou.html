@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(120deg, #0d5e67 0%, #e0f7fa 50%, #0b5fef 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1E293B;
+    }
+    .thankyou-container {
+      background: rgba(255,255,255,0.97);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(0,191,174,0.13);
+      padding: 3rem 2.5rem 2.5rem 2.5rem;
+      max-width: 420px;
+      width: 95vw;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s;
+    }
+    .thankyou-icon {
+      font-size: 3.5rem;
+      color: #ffff;
+      margin-bottom: 1.2rem;
+      animation: popIn 0.7s cubic-bezier(.4,0,.2,1);
+      background: linear-gradient(135deg, #00bfae 60%, #2563EB 100%);
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 2px 12px rgba(0,191,174,0.13);
+    }
+    .thankyou-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2563EB;
+      margin-bottom: 0.7rem;
+      letter-spacing: 0.5px;
+    }
+    .thankyou-message {
+      font-size: 1.15rem;
+      color: #333;
+      margin-bottom: 2.2rem;
+      line-height: 1.6;
+    }
+    .btn-home {
+      display: inline-block;
+      background: linear-gradient(90deg, #00bfae, #2563EB);
+      color: #fff;
+      padding: 0.85rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.08rem;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0, 180, 216, 0.18);
+      border: none;
+      transition: background 0.3s, transform 0.2s;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .btn-home:hover {
+      background: linear-gradient(90deg, #2563EB, #00bfae);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+    }
+    /* Decorative floating icon background */
+    .thankyou-container::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, #00bfae33 60%, transparent 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .thankyou-container::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, #2563EB22 60%, transparent 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0;}
+      80% { transform: scale(1.1);}
+      100% { transform: scale(1); opacity: 1;}
+    }
+    @media (max-width: 600px) {
+      .thankyou-container {
+        padding: 2rem 0.7rem 1.5rem 0.7rem;
+        max-width: 98vw;
+      }
+      .thankyou-title {
+        font-size: 1.3rem;
+      }
+      .thankyou-message {
+        font-size: 1rem;
+      }
+      .thankyou-icon {
+        font-size: 2.2rem;
+        width: 54px;
+        height: 54px;
+        colo
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="thankyou-container">
+    <div class="thankyou-icon">
+      <!-- <i class="fas fa-check-circle"></i>
+        -->
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+    <div class="thankyou-title">Thank You!</div>
+    <div class="thankyou-message">
+      Your message has been sent successfully.<br>
+      We appreciate your interest and will get back to you soon.
+    </div>
+    <a href="/" class="btn-home"><i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i>Back to Home</a>
+  </div>
+</body>
+</html>
