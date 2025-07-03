@@ -557,6 +557,18 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// Smooth scroll and center section on navbar link click
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').slice(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            e.preventDefault();
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+});
+
 
 </script>
 
