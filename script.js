@@ -34,26 +34,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Sticky navbar on scroll
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-
-    // Navbar color transition based on scroll position
-    const header = document.querySelector('header');
-    if (header) {
-        const headerBottom = header.offsetTop + header.offsetHeight;
-        if (window.scrollY + navbar.offsetHeight >= headerBottom) {
-            navbar.classList.add('gradient-bg');
-        } else {
-            navbar.classList.remove('gradient-bg');
-        }
-    }
-});
-
 // Highlight active section in navbar
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section');
@@ -171,4 +151,16 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('gradient-bg');
+    } else {
+      navbar.classList.remove('gradient-bg');
+    }
+  });
 });

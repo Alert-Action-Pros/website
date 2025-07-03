@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="/shield.ico" type="image/x-icon">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - AlertAction Pros</title>
@@ -10,6 +11,151 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/style.css">
+    <style>
+        /* Additional Styles for About Page */
+        .about-section {
+            padding: 4rem 1rem;
+            background: white;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark);
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-statement {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        blockquote {
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--primary);
+            text-align: center;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            background: rgba(255,255,255,0.8);
+            max-width: 600px;
+            position: relative;
+        }
+        
+        blockquote::before {
+            content: '\201C';
+            font-family: Georgia, serif;
+            font-size: 4rem;
+            color: rgba(0,191,174,0.1);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
+        
+        .difference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .difference-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border: 1px solid rgba(0,191,174,0.1);
+        }
+        
+        .difference-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,191,174,0.1);
+        }
+        
+        .difference-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,191,174,0.2);
+        }
+        
+        .difference-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        
+        .cta-highlight {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 1.5rem 0;
+            color: var(--accent);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .cta-subtext {
+            margin-top: 1.5rem;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        .benefits-tagline {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .benefits-tagline span {
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .benefits-tagline {
+                gap: 0.5rem;
+            }
+            
+            .benefits-tagline span {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            
+            blockquote {
+                font-size: 1.2rem;
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body id="top">
 <!-- Navigation Bar -->
@@ -36,15 +182,15 @@
     </div>
 </nav>
 
-<header class="animate-on-scroll">
+<header class="animate-on-scroll" style="background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));">
     <div class="container">
         <h1>Built by Merchants, For Merchants</h1>
-        <p class="lead">We created the chargeback alert service we wish we had when we were in your shoes</p>
+        <p class="lead" style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">We created the chargeback alert service we wish we had when we were in your shoes</p>
         <div class="benefits-tagline">
-            <span>Real experience</span>
-            <span>Fast action</span>
-            <span>Clear results</span>
-            <span>Peace of mind</span>
+            <span><i class="fas fa-check-circle"></i> Real experience</span>
+            <span><i class="fas fa-bolt"></i> Fast action</span>
+            <span><i class="fas fa-chart-line"></i> Clear results</span>
+            <span><i class="fas fa-heart"></i> Peace of mind</span>
         </div>
     </div>
 </header>
@@ -65,7 +211,7 @@
     </div>
 </section>
 
-<section class="mission-section animate-on-scroll" style="background: linear-gradient(120deg, #f9fefe 80%, #e0f7fa 100%); border: 2.5px solid #00bfae; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,191,174,0.10); margin-top:2rem; margin-bottom:2rem; position:relative; overflow:hidden;">
+<section class="mission-section animate-on-scroll" style="background: linear-gradient(120deg, #f9fefe 80%, #e0f7fa 100%); border: 2.5px solid #00bfae; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,191,174,0.10); margin: 4rem auto; position: relative; overflow: hidden; max-width: 1200px;">
     <div class="container">
         <div class="section-title">
             <h2>Why We Exist</h2>
@@ -76,9 +222,9 @@
             
             <blockquote>"We handle your chargeback alerts — so you don't have to."</blockquote>
             
-            <p>Our goal? Let you focus on running and growing your business — while we handle the alerts, actions, and reporting behind the scenes.</p>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; font-size: 1.1rem;">Our goal? Let you focus on running and growing your business — while we handle the alerts, actions, and reporting behind the scenes.</p>
             
-            <p>Whether you're a startup or a high-volume merchant, our team of experts ensures alerts are acted on in real time — saving you time, money, and disputes.</p>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto; font-size: 1.1rem;">Whether you're a startup or a high-volume merchant, our team of experts ensures alerts are acted on in real time — saving you time, money, and disputes.</p>
         </div>
     </div>
 </section>
@@ -129,14 +275,14 @@
 <section class="cta-section animate-on-scroll">
     <div class="container">
         <div class="section-title">
-            <h2>Let's Take This Off Your Plate</h2>
+            <h2 style="color: white;">Let's Take This Off Your Plate</h2>
         </div>
         
         <div class="cta-content">
-            <p>If chargeback alerts are slowing you down, we're here to speed things up.</p>
+            <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 1.5rem;">If chargeback alerts are slowing you down, we're here to speed things up.</p>
             <p class="cta-highlight">No complex setup. No babysitting. Just results.</p>
             
-            <a href="index.html#cta" class="btn btn-large">Talk to an Expert</a>
+            <a href="index.html#cta" class="btn btn-large" style="background: var(--accent); border: 2px solid var(--accent);">Talk to an Expert</a>
             
             <p class="cta-subtext">See how smooth things can be with AlertAction Pros on your side.</p>
         </div>
@@ -168,16 +314,12 @@
             <h4>Contact Us</h4>
             <ul>
                 <li><i class="fas fa-envelope"></i> support@alertactionpros.com</li>
-                <!-- <li><i class="fas fa-map-marker-alt"></i> MUMBAI, INDIA</li> -->
             </ul>
         </div>
     </div>
     <div class="footer-bottom">
         <p>
-            &copy; <span id="footerYear"></span> AlertAction Pros. All rights reserved. | Maintained by TECHNOVA &amp; designed by 
-            <a href="https://mstrajatmishra.com/" target="_blank" rel="noopener" style="color:var(--primary-light);font-weight:600;text-decoration:none;">
-                MST_RAJATMISHRA
-            </a>
+            &copy; <span id="footerYear"></span> AlertActionPros. All rights reserved. | NOVAFOX TECHNOLOGIES
         </p>
     </div>
 </footer>
