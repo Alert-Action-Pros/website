@@ -598,61 +598,73 @@ section {
     animation: fadeInUp 1.2s;
 }
 
-/* Responsive feature list alignment */
+/* Feature List - Mobile Optimized */
 .feature-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 2rem 0;
+  margin: 0;
 }
 
 .feature-list li {
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-start;
-  margin-bottom: 1.2em;
-  font-size: 1.13rem;
-  color: #222;
-  line-height: 1.5;
+  margin-bottom: 0.3rem;  /* Reduced from 1.2rem */
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 .feature-title {
-  font-weight: 700;
-  margin-right: 0.5em;
-  color: var(--primary-dark, #2563eb);
-  min-width: 140px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  min-width: 6.5em; /* Adjusted for better alignment */
+  margin-right: 0.3rem;
 }
 
 .feature-desc {
-  font-weight: 400;
   color: #444;
-  flex: 1 1 200px;
+  flex: 1;
 }
 
-/* Compact feature-list for mobile */
-@media (max-width: 600px) {
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
   .feature-list li {
-    flex-direction: row;
-    align-items: flex-start;
-    font-size: 0.98rem;
-    margin-bottom: 0.7em;
-    padding: 0.3em 0;
+    margin-bottom: 0.25rem; /* Even tighter spacing */
+    padding: 0.15rem 0;
+    font-size: 0.95rem;
   }
-  .feature-list li::before {
-    width: 1.5em;
-    height: 1.5em;
-    margin-right: 0.7em;
+  
+  .feature-title {
+    min-width: 5.5em; /* More compact title width */
+    margin-right: 0.2rem;
+    font-size: 0.95em;
+  }
+  
+  .feature-desc {
+    font-size: 0.92em;
+  }
+  
+  /* Optional: Add a subtle separator */
+  .feature-list li:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 191, 174, 0.1);
+    padding-bottom: 0.3rem;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .feature-list li {
+    margin-bottom: 0.2rem;
+    font-size: 0.92rem;
+  }
+  
+  .feature-title {
+    min-width: 5em;
+  }
+  
+  .feature-desc {
     font-size: 0.9em;
   }
-  .feature-title {
-    min-width: 0;
-    margin-right: 0.3em;
-    font-size: 1em;
-  }
-  .feature-desc {
-    font-size: 0.98em;
-  }
 }
-
 .feature-list li:nth-child(1) { animation-delay: 0.2s;}
 .feature-list li:nth-child(2) { animation-delay: 0.5s;}
 .feature-list li:nth-child(3) { animation-delay: 0.8s;}
@@ -1750,19 +1762,20 @@ header h1 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.4rem; /* Reduced gap */
     font-size: 1rem;
     padding-left: 0;
   }
   .features .feature-title {
     font-weight: 600;
     color: #00bfae;
-    margin-bottom: 0.1em;
+    margin-bottom: 0.05em; /* Tighter title/desc gap */
   }
   .features .feature-desc {
     margin-left: 0;
     color: #333;
     font-size: 0.98em;
+    margin-top: 0.1em; /* Tighter desc spacing */
   }
   .features .card {
     padding: 1.2rem 0.6rem !important;
