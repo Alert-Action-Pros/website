@@ -1700,8 +1700,78 @@ header h1 {
   list-style: none;
   padding-left: 0;
 }
-.benefit-list li {
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
+
+/* Responsive fixes for navbar and features section */
+@media (max-width: 768px) {
+  .navbar .logo img {
+    height: 60px !important;
+    margin-right: 6px !important;
+  }
+  .navbar .logo {
+    font-size: 1.2rem !important;
+  }
+  .navbar-container {
+    padding: 0.5rem 1rem !important;
+  }
+  .navbar {
+    min-height: 60px;
+  }
+  .nav-links {
+    background: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    z-index: 100;
+    display: none;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+  .mobile-menu-btn {
+    display: block !important;
+  }
+}
+
+/* Feature list responsive alignment */
+@media (max-width: 768px) {
+  .features .feature-list {
+    padding-left: 0 !important;
+    margin: 0 auto !important;
+    width: 100%;
+  }
+  .features .feature-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    padding-left: 0;
+  }
+  .features .feature-title {
+    font-weight: 600;
+    color: #00bfae;
+    margin-bottom: 0.1em;
+  }
+  .features .feature-desc {
+    margin-left: 0;
+    color: #333;
+    font-size: 0.98em;
+  }
+  .features .card {
+    padding: 1.2rem 0.6rem !important;
+  }
+}
+
+/* Add spacing between navbar and first section */
+@media (max-width: 768px) {
+  header, .features {
+    margin-top: 70px !important;
+  }
 }
