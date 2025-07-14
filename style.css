@@ -61,7 +61,7 @@ body {
     padding: 0.5rem 0;
 }
 
-.navbar.gradient-bg {
+/* .navbar.gradient-bg {
     background: linear-gradient(120deg, var(--primary), var(--secondary), var(--primary-light));
     background-size: 200% 200%;
     animation: gradientMove 8s ease-in-out infinite;
@@ -78,7 +78,7 @@ body {
 .navbar.gradient-bg .nav-links a.active,
 .navbar.gradient-bg .nav-links a:hover {
     color: var(--accent);
-}
+} */
 
 .navbar.white-bg {
     background: #fff !important;
@@ -114,6 +114,7 @@ body {
     display: flex;
     align-items: center;
     height: 48px;
+    margin-top: 8px;
 }
 
 .logo span {
@@ -1494,11 +1495,11 @@ header {
     overflow: hidden;
 }
 
-@keyframes gradientMove {
+/* @keyframes gradientMove {
     0% { background-position: 0% 50%;}
     50% { background-position: 100% 50%;}
     100% { background-position: 0% 50%;}
-}
+} */
 
 /* Floating headline effect */
 header h1 {
