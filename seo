@@ -1,0 +1,72 @@
+<!-- Improved Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="revisit-after" content="7 days">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    
+    <!-- Enhanced Title Tag -->
+    <title>Chargeback Alert Management Service | Stop Disputes Fast | AlertAction Pros</title>
+    
+    <!-- Enhanced Meta Description -->
+    <meta name="description" content="Expert chargeback alert management service. Stop disputes before they happen with 24/7 monitoring of Verifi & Ethoca alerts. Reduce chargebacks by 60-80% with our proven system.">
+    
+    <!-- Enhanced Keywords (less important today but still useful) -->
+    <meta name="keywords" content="chargeback alerts, chargeback prevention, Verifi alerts, Ethoca alerts, dispute management, chargeback reduction, payment disputes, merchant services, fraud prevention, credit card disputes">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alertactionpros.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alertactionpros.com/">
+    <meta property="og:title" content="Chargeback Alert Management Service | Stop Disputes Fast | AlertAction Pros">
+    <meta property="og:description" content="Expert chargeback alert management service. Stop disputes before they happen with 24/7 monitoring of Verifi & Ethoca alerts.">
+    <meta property="og:image" content="https://alertactionpros.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="AlertAction Pros">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://alertactionpros.com/">
+    <meta name="twitter:title" content="Chargeback Alert Management Service | Stop Disputes Fast | AlertAction Pros">
+    <meta name="twitter:description" content="Expert chargeback alert management service. Stop disputes before they happen with 24/7 monitoring of Verifi & Ethoca alerts.">
+    <meta name="twitter:image" content="https://alertactionpros.com/og-image.jpg">
+    <meta name="twitter:site" content="@alertactionpros">
+
+    <!-- Enhanced JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "AlertAction Pros",
+      "url": "https://alertactionpros.com/",
+      "logo": "https://alertactionpros.com/logo.png",
+      "description": "Professional chargeback alert management service helping merchants reduce disputes and protect revenue",
+      "foundingDate": "2020",
+      "sameAs": [
+        "https://www.linkedin.com/company/alertactionpros",
+        "https://twitter.com/alertactionpros"
+      ],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "email": "sales@alertactionpros.com",
+        "contactType": "sales",
+        "areaServed": "US,CA,UK,EU"
+      },{
+        "@type": "ContactPoint",
+        "email": "support@alertactionpros.com",
+        "contactType": "customer support",
+        "areaServed": "US,CA,UK,EU"
+      }],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US"
+      }
+    }
+    </script>
