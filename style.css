@@ -1279,6 +1279,12 @@ footer {
 .footer-contact ul li {
     margin-bottom: 8px;
 }
+
+.footer-contact a:hover {
+    color: #009688 !important; /* Slightly darker shade on hover */
+    text-decoration: underline !important;
+}
+
 .footer-links ul li a {
     color: #fff;
     text-decoration: none;
