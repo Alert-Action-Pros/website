@@ -290,30 +290,50 @@
 </section>
 
 <!-- Footer Start -->
-<footer class="footer animate-on-scroll">
+<footer class="footer animate-on-scroll" itemscope itemtype="https://schema.org/WPFooter">
     <div class="footer-container">
         <div class="footer-brand">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="AlertAction Pros Logo" style="height: 100px; vertical-align: middle; margin-right: 8px;">
-                AlertAction<span>Pros</span>
+            <a href="#top" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="/logo.png" alt="AlertAction Pros Logo - Chargeback Alert Management Specialists" style="height: 100px; width: auto; vertical-align: middle;" itemprop="logo">
+                <span itemprop="name">AlertAction<span>Pros</span></span>
             </a>
-            <p>Chargeback alert management made simple, secure, and effective.</p>
+            <p itemprop="description">Chargeback alert management made simple, secure, and effective.</p>
         </div>
         <div class="footer-links">
             <h4>Quick Links</h4>
             <ul>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="index.html#features">Features</a></li>
-                <li><a href="index.html#how-it-works">How It Works</a></li>
-                <li><a href="index.html#why-us">Why Us</a></li>
-                <li><a href="index.html#testimonials">Testimonials</a></li>
-                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="#features">Features</a></li>                
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#cta">Contact</a></li>
             </ul>
         </div>
         <div class="footer-contact">
             <h4>Contact Us</h4>
             <ul>
-                <li><i class="fas fa-envelope"></i> support@alertactionpros.com</li>
+                <li style="margin-bottom:1.2em;">
+                    <strong>For Sales</strong><br>
+                    <i class="fas fa-envelope" style="color: #00bfae;"></i>
+                    <a href="mailto:sales@alertactionpros.com" itemprop="email" style="color: #00bfae; font-weight: 600; text-decoration: none;">sales@alertactionpros.com</a>
+                </li>
+                <li style="margin-bottom:1.2em;">
+                    <strong>For Support</strong><br>
+                    <i class="fas fa-envelope" style="color: #00bfae;"></i>
+                    <a href="mailto:support@alertactionpros.com" itemprop="email" style="color: #00bfae; font-weight: 600; text-decoration: none;">support@alertactionpros.com</a>
+                </li>
+                <li>
+                    <div class="footer-social" style="margin-top: 15px;">
+    <a href="https://www.linkedin.com/company/alert-action-pros/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="color: #00bfae; margin-right: 15px; font-size: 1.5rem; text-decoration: none;">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://www.instagram.com/alertactionpros/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="color: #00bfae; font-size: 1.5rem; text-decoration: none;">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+                </li>
             </ul>
         </div>
     </div>
@@ -324,7 +344,6 @@
     </div>
 </footer>
 <!-- Footer End -->
-
 <script src="/script.js"></script>
 <script>
     // Set current year dynamically in footer
