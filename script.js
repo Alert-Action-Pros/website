@@ -229,19 +229,126 @@ window.addEventListener('scroll', animateOnScroll);
 // Initialize navbar state
 window.dispatchEvent(new Event('scroll'));
 
-// Make "Get Started" button highlight when any nav link is hovered (keeping text white)
-const navLinkItems = document.querySelectorAll('.nav-links a:not(.btn-nav)');
-const getStartedBtn = document.querySelector('.btn-nav');
+// Add CSS rules to prevent green underline and color changes on Get Started button
+const style = document.createElement('style');
+style.textContent = `
+    /* ULTRA-AGGRESSIVE: Lock Get Started button appearance - NO CHANGES EVER */
+    .btn-nav,
+    * .btn-nav,
+    ** .btn-nav,
+    *** .btn-nav,
+    **** .btn-nav,
+    .nav-links .btn-nav,
+    .cta .btn-nav,
+    .cta-section .btn-nav,
+    .navbar.scrolled .btn-nav,
+    .navbar.scrolled .btn-nav:hover,
+    .navbar.scrolled .btn-nav:focus,
+    .navbar.scrolled .btn-nav:active,
+    .scrolled-to-form .btn-nav,
+    .scrolled-to-form .btn-nav:hover,
+    .scrolled-to-form .btn-nav:focus,
+    .scrolled-to-form .btn-nav:active,
+    body.scrolled-to-form .btn-nav,
+    body.scrolled-to-form .btn-nav:hover,
+    body.scrolled-to-form .btn-nav:focus,
+    body.scrolled-to-form .btn-nav:active,
+    html.scrolled-to-form .btn-nav,
+    html.scrolled-to-form .btn-nav:hover,
+    html.scrolled-to-form .btn-nav:focus,
+    html.scrolled-to-form .btn-nav:active,
+    .scrolled-to-form .nav-links .btn-nav,
+    .scrolled-to-form .nav-links .btn-nav:hover,
+    .scrolled-to-form .nav-links .btn-nav:focus,
+    .scrolled-to-form .nav-links .btn-nav:active,
+    .scrolled-to-form .cta .btn-nav,
+    .scrolled-to-form .cta .btn-nav:hover,
+    .scrolled-to-form .cta .btn-nav:focus,
+    .scrolled-to-form .cta .btn-nav:active,
+    .scrolled-to-form .cta-section .btn-nav,
+    .scrolled-to-form .cta-section .btn-nav:hover,
+    .scrolled-to-form .cta-section .btn-nav:focus,
+    .scrolled-to-form .cta-section .btn-nav:active,
+    .btn-nav:hover,
+    .btn-nav:focus,
+    .btn-nav:active,
+    .nav-links .btn-nav:hover,
+    .nav-links .btn-nav:focus,
+    .nav-links .btn-nav:active,
+    .cta .btn-nav:hover,
+    .cta .btn-nav:focus,
+    .cta .btn-nav:active,
+    .cta-section .btn-nav:hover,
+    .cta-section .btn-nav:focus,
+    .cta-section .btn-nav:active,
+    a.btn-nav,
+    a.btn-nav:hover,
+    a.btn-nav:focus,
+    a.btn-nav:active,
+    [class*="btn-nav"],
+    [class*="btn-nav"]:hover,
+    [class*="btn-nav"]:focus,
+    [class*="btn-nav"]:active,
+    [id*="btn-nav"],
+    [id*="btn-nav"]:hover,
+    [id*="btn-nav"]:focus,
+    [id*="btn-nav"]:active {
+        color: #000 !important;
+        background: var(--accent) !important;
+        border-color: var(--accent) !important;
+        box-shadow: 0 2px 10px rgba(0, 191, 174, 0.2) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transition: none !important;
+        transform: none !important;
+        animation: none !important;
+        text-shadow: none !important;
+        filter: none !important;
+        -webkit-text-fill-color: #000 !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+    }
+    
+    /* Prevent any underline or color effects on Get Started button */
+    .nav-links .btn-nav::after,
+    .nav-links .btn-nav:hover::after,
+    .nav-links .btn-nav.active::after,
+    .btn-nav::after,
+    .btn-nav:hover::after,
+    .btn-nav:focus::after,
+    .btn-nav:active::after {
+        display: none !important;
+        content: none !important;
+    }
+    
+    /* Force black text on all possible selectors */
+    * .btn-nav,
+    ** .btn-nav,
+    *** .btn-nav,
+    **** .btn-nav,
+    * .btn-nav *,
+    ** .btn-nav *,
+    *** .btn-nav *,
+    **** .btn-nav * {
+        color: #000 !important;
+        -webkit-text-fill-color: #000 !important;
+    }
+`;
+document.head.appendChild(style);
 
-navLinkItems.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-        getStartedBtn.style.background = '#fff';
-        getStartedBtn.style.color = 'var(--accent)';
-        getStartedBtn.style.borderColor = 'var(--accent)';
-    });
-    link.addEventListener('mouseleave', () => {
-        getStartedBtn.style.background = 'var(--accent)';
-        getStartedBtn.style.color = '#fff';
-        getStartedBtn.style.borderColor = 'var(--accent)';
-    });
-});
+// DISABLED: Remove hover effects from Get Started button - keep it static
+// const navLinkItems = document.querySelectorAll('.nav-links a:not(.btn-nav)');
+// const getStartedBtn = document.querySelector('.btn-nav');
+
+// navLinkItems.forEach(link => {
+//     link.addEventListener('mouseenter', () => {
+//         getStartedBtn.style.background = '#fff';
+//         getStartedBtn.style.color = '#000';
+//         getStartedBtn.style.borderColor = 'var(--accent)';
+//     });
+//     link.addEventListener('mouseleave', () => {
+//         getStartedBtn.style.background = 'var(--accent)';
+//         getStartedBtn.style.color = '#000';
+//         getStartedBtn.style.borderColor = 'var(--accent)';
+//     });
+// });
