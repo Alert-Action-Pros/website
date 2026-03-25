@@ -566,26 +566,51 @@
             </p>
         </div>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
             
-            <div class="security-card" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; backdrop-filter: blur(10px);" onmouseover="this.style.transform='translateY(-5px)'; this.style.background='rgba(255,255,255,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.05)';">
-                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                    <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
-                        <i class="fas fa-user-shield" style="color: white; font-size: 1.2rem;"></i>
+            <div class="security-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem 1.5rem; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(12px); min-height: 180px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-4px)'; this.style.background='rgba(255,255,255,0.08)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.05)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.25)';">
+                <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center;">
+                    <div style="background: linear-gradient(135deg, #00bfae 0%, #00897b 100%); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; box-shadow: 0 5px 15px rgba(0,191,174,0.25);">
+                        <i class="fas fa-server" style="color: white; font-size: 1.3rem;"></i>
                     </div>
-                    <h3 style="color: white; font-weight: 600; margin: 0; font-size: 1.2rem;">Data Privacy</h3>
+                    <h3 style="color: white; font-weight: 700; margin: 0; font-size: 1.1rem; line-height: 1.3;">Secure Infrastructure</h3>
                 </div>
-                <p style="color: #e2e8f0; margin: 0; line-height: 1.5; opacity: 0.9;">Strict data privacy policies ensuring your information never gets shared.</p>
             </div>
             
-            <div class="security-card" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; backdrop-filter: blur(10px);" onmouseover="this.style.transform='translateY(-5px)'; this.style.background='rgba(255,255,255,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.05)';">
-                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                    <div style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
-                        <i class="fas fa-database" style="color: white; font-size: 1.2rem;"></i>
+            <div class="security-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem 1.5rem; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(12px); min-height: 180px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-4px)'; this.style.background='rgba(255,255,255,0.08)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.05)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.25)';">
+                <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center;">
+                    <div style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; box-shadow: 0 5px 15px rgba(37,99,235,0.25);">
+                        <i class="fas fa-lock" style="color: white; font-size: 1.3rem;"></i>
                     </div>
-                    <h3 style="color: white; font-weight: 600; margin: 0; font-size: 1.2rem;">Secure Storage</h3>
+                    <h3 style="color: white; font-weight: 700; margin: 0; font-size: 1.1rem; line-height: 1.3;">Encrypted Communications</h3>
                 </div>
-                <p style="color: #e2e8f0; margin: 0; line-height: 1.5; opacity: 0.9;">Enterprise-grade secure servers with regular security audits and updates.</p>
+            </div>
+            
+            <div class="security-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem 1.5rem; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(12px); min-height: 180px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-4px)'; this.style.background='rgba(255,255,255,0.08)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.05)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.25)';">
+                <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center;">
+                    <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; box-shadow: 0 5px 15px rgba(16,185,129,0.25);">
+                        <i class="fas fa-shield-alt" style="color: white; font-size: 1.3rem;"></i>
+                    </div>
+                    <h3 style="color: white; font-weight: 700; margin: 0; font-size: 1.1rem; line-height: 1.3;">Strict Internal Access Controls</h3>
+                </div>
+            </div>
+            
+            <div class="security-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem 1.5rem; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(12px); min-height: 180px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-4px)'; this.style.background='rgba(255,255,255,0.08)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.05)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.25)';">
+                <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center;">
+                    <div style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; box-shadow: 0 5px 15px rgba(139,92,246,0.25);">
+                        <i class="fas fa-certificate" style="color: white; font-size: 1.3rem;"></i>
+                    </div>
+                    <h3 style="color: white; font-weight: 700; margin: 0; font-size: 1.1rem; line-height: 1.3;">Compliance with Payment Industry Best Practices</h3>
+                </div>
+            </div>
+            
+            <div class="security-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem 1.5rem; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(12px); min-height: 180px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-4px)'; this.style.background='rgba(255,255,255,0.08)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.05)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.25)';">
+                <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center;">
+                    <div style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; box-shadow: 0 5px 15px rgba(245,158,11,0.25);">
+                        <i class="fas fa-handshake" style="color: white; font-size: 1.3rem;"></i>
+                    </div>
+                    <h3 style="color: white; font-weight: 700; margin: 0; font-size: 1.1rem; line-height: 1.3;">Responsible Handling of Dispute and Transaction Data</h3>
+                </div>
             </div>
         </div>
     </div>
